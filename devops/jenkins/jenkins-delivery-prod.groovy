@@ -13,7 +13,7 @@ node {
      }
 
     stage('Install WebApp on Firebase') {
-            withCredentials([usernamePassword(credentialsId: 'FIREBASE-TOKEN', variable: 'token')]) {
+            withCredentials([string(credentialsId: 'FIREBASE-TOKEN', variable: 'token')]) {
                 sh "firebase deploy --token ${token}"
             }
      }
