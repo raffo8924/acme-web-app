@@ -5,5 +5,5 @@
 
 export const environment = {
   production: true,
-  URL_MAIN_BACKEND: 'http://ec2-13-58-22-113.us-east-2.compute.amazonaws.com/'
+  URL_MAIN_BACKEND: 'https://gateway.kapcomperu.com/acme/'
 };
