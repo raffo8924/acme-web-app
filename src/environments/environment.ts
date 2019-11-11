@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  URL_MAIN_BACKEND: 'http://localhost:8080/'
+  URL_MAIN_BACKEND: 'https://gateway.kapcomperu.com/acme/'
 };
