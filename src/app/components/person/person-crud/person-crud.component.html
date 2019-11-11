@@ -1,0 +1,116 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header b-l-primary border-3">
+
+        <h5 class="form-header">
+          Edit Record
+        </h5>
+      </div>
+
+      <div class="card-body">
+        <form autocomplete="off" [formGroup]="mainForm" novalidate>
+          <ngb-tabset activeId="{{tabActive}}">
+            <ngb-tab [disabled]="!flagMainButtons" title="Principal" id="mainTab">
+              <ng-template ngbTabContent>
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input class="form-control" type="text" formControlName="name" name="name">
+                    <kapcom-label-validation [control]="mainForm.controls.name"></kapcom-label-validation>
+                  </div>
+                  <div class="form-group">
+                    <label>Lastname</label>
+                    <input class="form-control" type="text" formControlName="lastname" name="lastname">
+                    <kapcom-label-validation [control]="mainForm.controls.lastname"></kapcom-label-validation>
+                  </div>
+                  <div class="form-group">
+                    <label>Birth Date</label>
+                    <kapcom-date-picker [setDateValue]="mainForm.controls.birth_date.value" [setDateFormat]="'dd/mm/yyyy'" (dateChanged)="dateChanged($event)"></kapcom-date-picker>
+                    <kapcom-label-validation [control]="mainForm.controls.birth_date"></kapcom-label-validation>
+                  </div>
+                <div [hidden]="operation === 'new'">
+                  <div class="form-group">
+                    <label>Age</label>
+                    <input class="form-control" type="text" formControlName="age" name="age" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label>Death Date</label>
+                    <kapcom-date-picker [setDateValue]="mainForm.controls.death_date.value" [setDateFormat]="'dd/mm/yyyy'" [setReadOnly]="true"></kapcom-date-picker>
+                  </div>
+                  <div class="form-group">
+                    <label>Death Age</label>
+                    <input class="form-control" type="text" formControlName="death_age" name="death_age" readonly>
+                  </div>
+                </div>
+
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </form>
+      </div>
+      <div class="card-footer">
+        <div class="row" [hidden]="!flagMainButtons">
+
+          <button class="btn btn-primary mr-1"
+                  type="button"
+                  ngbTooltip="Save"
+                  [swal]="commonSwal"
+                  (confirm)="saveRecord()"
+                  [disabled]="!mainForm.valid">
+            <i class="fa fa-save"></i>&nbsp;
+            Save
+          </button>
+
+          <div class="btn-group" role="group">
+
+            <button class="btn btn-secondary" type="button" ngbTooltip="Close"  [routerLink]="['/persons/']">
+              <i class="fa fa-times"></i>&nbsp;
+              Close
+            </button>
+
+            <div ngbDropdown class="btn-group" role="group">
+              <button class="btn btn-secondary dropdown-toggle" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle></button>
+              <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right">
+
+                <button ngbDropdownItem *ngIf="operation==='update'" class="dropdown-item" type="button" ngbTooltip="New"
+                        [swal]="commonSwal"
+                        (confirm)="newRecord()">
+                  <i class="icon-feather-plus"></i>
+                  &nbsp; New
+                </button>
+                <button ngbDropdownItem *ngIf="operation==='update'" class="dropdown-item" type="button" ngbTooltip="Reload"
+                        [swal]="commonSwal"
+                        (confirm)="reloadRecord()">
+                  <i class="icon-feather-download"></i>
+                  &nbsp; Reload
+                </button>
+                <button ngbDropdownItem class="dropdown-item" type="button" (click)="loadDataSources()">
+                  <i class="icon-feather-refresh-ccw"></i>
+                  &nbsp; Refresh
+                </button>
+                <button *ngIf="operation==='update'" ngbDropdownItem class="dropdown-item" type="button" ngbTooltip="Delete"
+                        [swal]="commonSwal"
+                        (confirm)="removeRecord(model.id)">
+                  <i class="icon-feather-trash-2"></i>
+                  &nbsp; Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<swal
+    #commonSwal
+    title="Confirm"
+    text="Are you sure to continue?"
+    type="question"
+    [showCancelButton]="true"
+    [focusCancel]="true">
+</swal>
+
+<ng-http-loader [backgroundColor]="'#1b55e2'" [spinner]="spinkit.skThreeBounce" [debounceDelay]="200">
+</ng-http-loader>

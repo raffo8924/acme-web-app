@@ -1,0 +1,5 @@
+<div class="help-block form-text with-errors form-control-feedback" *ngIf="shouldShowErrors()">
+  <ul class="list-unstyled">
+    <li *ngFor="let error of listOfErrors()">{{error}}</li>
+  </ul>
+</div>

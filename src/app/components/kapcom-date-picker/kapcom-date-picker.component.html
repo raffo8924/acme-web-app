@@ -1,0 +1,15 @@
+<span class="input-group">
+  <input class="form-control" [placeholder]="(placeholder? placeholder: format)" readonly ngx-mydatepicker
+         [(ngModel)]="model"
+         [options]="myOptions"
+         #fechaDp="ngx-mydatepicker"
+         (dateChanged)="onDateChanged($event)"/>
+  <div class="input-group-append">
+    <button *ngIf="!readonly" type="button" class="btn btn-light btn-group-append-kapcom" (click)="onDateClear()">
+      <i class="fa fa-times"></i>
+    </button>
+    <button *ngIf="!readonly" type="button" class="btn btn-light btn-group-append-kapcom" (click)="fechaDp.toggleCalendar()">
+      <i class="fa fa-calendar"></i>
+    </button>
+  </div>
+</span>

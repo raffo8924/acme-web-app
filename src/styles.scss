@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.btn-group-append-kapcom {
+  border: 1px solid #ced4da !important;
+  border-color: #ced4da !important;
+}
+
+.form-control-kapcom {
+  border: 1px solid #ced4da !important;
+}
+
+.controls-above-table {
+  margin-bottom: 1rem;
+}
+
+.controls-above-table .btn, .controls-above-table .all-wrapper .fc-button, .all-wrapper .controls-above-table .fc-button {
+  margin-right: 0.5rem;
+}
+
+.controls-above-table .btn + .btn, .controls-above-table .all-wrapper .fc-button + .btn, .all-wrapper .controls-above-table .fc-button + .btn, .controls-above-table .all-wrapper .btn + .fc-button, .all-wrapper .controls-above-table .btn + .fc-button, .controls-above-table .all-wrapper .fc-button + .fc-button, .all-wrapper .controls-above-table .fc-button + .fc-button {
+  margin-left: 0px !important;
+}
+
+.controls-above-table .form-control {
+  margin-right: 1rem;
+}
+
+.controls-above-table .form-control:last-child {
+  margin-right: 0px;
+}
+
+.ng-select.custom-form-control .ng-select-container  {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  line-height: 1.5;
+  font-size: 1rem !important;
+}
+
+.ng-placeholder{
+  color:#6C757D !important;
+}
+
+.form-text.with-errors {
+  color: #e65252;
+}
+
+.has-danger .form-control-feedback.text-muted, .has-danger .invoice-body .invoice-desc .form-control-feedback.desc-value, .invoice-body .invoice-desc .has-danger .form-control-feedback.desc-value {
+  color: #e65252 !important;
+  font-weight: 400;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 20em;
+  overflow: auto;
+}
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+
+th {
+  text-transform: uppercase;
+}
+
+.btn {
+  padding: 0.3rem 0.8rem !important;
+}
+
