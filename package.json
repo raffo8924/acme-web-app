@@ -25,7 +25,7 @@
     "@toverux/ngx-sweetalert2": "^4.0.0",
     "bootstrap": "^4.3.1",
     "feather-icons": "^4.22.1",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "mydatepicker": "^2.6.3",
     "ng-http-loader": "^6.0.1",
     "ngx-mydatepicker": "^2.4.9",
